@@ -9,3 +9,23 @@
 <div *ngIf="fibonacciValue !== undefined">
     The fibonnaci number for {{inputValue}} is: {{fibonacciValue}}. 
 </div>
+
+<div *ngIf="hasSearchHistory()">
+  <div>Search history:</div>
+  <table>
+    <thead>
+      <tr>
+        <td>Number</td>
+        <td>Fibonacci</td>
+        <td>Searched in</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of searchHistory.searchEntries">
+        <td>{{entry.number}}</td>
+        <td>{{entry.fibonacci}}</td>
+        <td>{{entry.searchTimestamp}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
