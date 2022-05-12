@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SearchEntry } from '../model/searchEntry';
 import { SearchHistory } from '../model/searchHistory';
-import { CookieService } from 'ngx-cookie-service';
 
 /**
  * Service to handle Fibonacci operations.
@@ -12,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class FibonacciService {
 
-  constructor(private cookieService: CookieService) {
+  constructor() {
   }
 
   private searchHistory: SearchHistory = new SearchHistory();
@@ -49,13 +48,13 @@ export class FibonacciService {
   }
 
   private async loadHistoryData() {
-    const searchData = this.cookieService.get("search-data");
-    const jsonData = await JSON.parse(searchData);
+    const searchData = localStorage.getItem("search-data");
+    const jsonData = await JSON.parse(searchData || "");
     return jsonData;
   }
 
   private async saveHistoryData() {
     const data = JSON.stringify(this.searchHistory);
-    this.cookieService.set("search-data", data);
+    localStorage.setItem('search-data', data);
   }
 }
