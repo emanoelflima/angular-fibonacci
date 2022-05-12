@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The project consists in an angular application, that contains a simple component to handle the application search bar and history table.
 
-The archtecture was bilt as follows:
+The archtecture was built as follows:
 
 - Main angular app
   - Fibonacci component: responsible of handling the requests and handle the data from the service.
