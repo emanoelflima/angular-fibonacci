@@ -19,10 +19,19 @@ export class FibonacciComponent implements OnInit {
     this.searchHistory = await this.fibonacciService.getSearchHistory();
   }
 
+  /** The FibonacciValue found on the last search */
   public fibonacciValue: number | undefined;
+
+  /** The number inputted by the user on its last search */
   public inputValue: number | undefined;
+
+  /** The search history data */
   public searchHistory: SearchHistory = new SearchHistory();
 
+  /**
+   * Calculates the Fibonacci sequence of given number.
+   * @param number the number to calculate its sequence.
+   */
   public async calculateFibonacci(number: any) {
     this.fibonacciValue = undefined;
     this.fibonacciValue = this.fibonacciService.getFibonacci(Number(number));
@@ -31,6 +40,10 @@ export class FibonacciComponent implements OnInit {
     this.searchHistory = await this.fibonacciService.getSearchHistory();
   }
 
+  /**
+   * Indicates whether there is a valid search history with data.
+   * @returns true or false.
+   */
   public hasSearchHistory(): boolean {
     return this.searchHistory !== undefined
       && this.searchHistory.searchEntries !== undefined

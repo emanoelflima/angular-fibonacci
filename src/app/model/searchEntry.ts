@@ -3,6 +3,7 @@
  * @author Emanoel de Lima
  */
 export class SearchEntry {
+    
     public number: number;
     public fibonacci: number;
     public searchTimestamp: Date;
