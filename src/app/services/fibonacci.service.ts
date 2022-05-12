@@ -47,17 +47,17 @@ export class FibonacciService {
    * @returns the calculated value.
    */
   private calculateFibonacci(number: number): number {
-
-    if (number === 0) {
-      return 0;
+    var a = 0, b = 1, fibonacci = number === 0 ? 0 : 1;
+    
+    for(let i = 2; i <= number; i++) {
+      fibonacci = a + b;
+      a = b;
+      b = fibonacci;
     }
-
-    if (number === 1) {
-      return 1;
-    }
-
-    return this.calculateFibonacci(number-1) + this.calculateFibonacci(number-2);
+    
+    return fibonacci;
   }
+  
 
   /**
    * Loads the search history from the local storage.
