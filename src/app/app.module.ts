@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
 import { FibonacciComponent } from './components/fibonacci/fibonacci.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { FibonacciComponent } from './components/fibonacci/fibonacci.component';
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
-    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

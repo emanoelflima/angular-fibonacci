@@ -1,31 +1,33 @@
-<h1>Ask me the Fibonacci of: </h1>
-
-<mat-form-field appearance="fill">
-  <input type="number" matInput #fibonacciInput min="0">
-</mat-form-field>
-
-<button mat-button (click)="calculateFibonacci(fibonacciInput.value)">Go!</button>
-
-<div *ngIf="fibonacciValue !== undefined">
-    The fibonnaci number for {{inputValue}} is: {{fibonacciValue}}. 
-</div>
-
-<div *ngIf="hasSearchHistory()">
-  <div>Search history:</div>
-  <table>
-    <thead>
-      <tr>
-        <td>Number</td>
-        <td>Fibonacci</td>
-        <td>Searched in</td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let entry of searchHistory.searchEntries">
-        <td>{{entry.number}}</td>
-        <td>{{entry.fibonacci}}</td>
-        <td>{{entry.searchTimestamp}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="content">
+  <div class="logo"></div>
+  <h1>Ask me the Fibonacci of: </h1>
+  
+  <div class="form">
+    <input type="number" class="search-field" matInput #fibonacciInput min="0">
+    <button mat-button (click)="calculateFibonacci(fibonacciInput.value)">Go!</button>
+  </div>
+  
+  <div class="result" *ngIf="fibonacciValue !== undefined">
+      The fibonnaci number for {{inputValue}} is: {{fibonacciValue}}. 
+  </div>
+  
+  <div class="search-history-container" *ngIf="hasSearchHistory()">
+    <h2>Search history:</h2>
+    <table class="search-history">
+      <thead>
+        <tr>
+          <td class="col-number">Number</td>
+          <td class="col-fibonacci">Fibonacci</td>
+          <td class="col-search-date">Searched in</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of searchHistory.searchEntries">
+          <td class="col-number">{{entry.number}}</td>
+          <td class="col-fibonacci">{{entry.fibonacci}}</td>
+          <td class="col-search-date">{{entry.searchTimestamp}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
